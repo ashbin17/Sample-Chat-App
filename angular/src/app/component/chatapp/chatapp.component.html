@@ -1,0 +1,50 @@
+<div class="container" *ngIf="receiver; else elseblock">
+<div class="d-flex justify-content-center" style="padding-top: 33px;">
+    <p style="font-size: larger;"><b> Receiver Name : {{receiver.username}}</b></p>
+</div>
+<hr >
+
+
+<div style="overflow: scroll; max-height:70vh; width:100%;">
+    <!--<div class="msgbox">
+        <img src="https://www.w3schools.com/w3images/bandmember.jpg" alt="Avatar" style="width:100%;">
+        <p>Hello. How are you today?</p>
+        <span class="time-right">11:00</span>
+    </div>
+    <div class="msgbox darker">
+        <img src="https://www.w3schools.com/w3images/avatar_g2.jpg" alt="Avatar" class="right" style="width:100%;">
+        <p>Hey! I'm fine. Thanks for asking!</p>
+        <span class="time-left">11:01</span>
+    </div>-->
+    
+<div *ngIf="viewmsg; else nextblock">
+    <div *ngFor="let view of viewmsg" >
+        <div class="msgbox" *ngIf="view.sender == receiver.id">
+            <img [src]=receiver_img alt="Avatar" style="width:100%;">
+            <p>{{view.msg}}</p>
+            <span class="time-right" style="color: black;">{{view.date | date:'medium'}}</span>
+        </div>
+
+
+        <div class="msgbox darker" *ngIf="view.sender == sender.id">
+            <img [src]=sender_img alt="Avatar" class="right" style="width:100%;">
+            <p>{{view.msg}}</p>
+            <span class="time-left" style="color: black;" >{{view.date | date:'medium'}}</span>
+        </div>
+
+
+    </div>
+</div>
+
+    <ng-template #nextblock>Send a message to start chat</ng-template>
+</div>
+
+
+<div class="di">
+    <input type="text" class="search"  placeholder="Type a message..." required [(ngModel)]="msg.msg">
+    <button class="btn" style="margin-left: 20px; border-radius: 50%; background-color: #C0C0FA;" (click)="send()">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" style="margin-top:5px; margin-left:5px;">send</mat-icon>
+    </button>
+</div>
+</div>
+<ng-template #elseblock>Click a contact to start chat</ng-template>

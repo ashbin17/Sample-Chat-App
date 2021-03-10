@@ -1,0 +1,26 @@
+<div class="container mt-5 d-flex justify-content-center">
+    <div  style="border: 1px solid black; margin:auto;">
+    <form (submit)="register()" style="max-width: 500px;margin:20px;padding:10px;"  class="css-form" #form="ngForm">
+        <h3 class="pb-3s d-flex justify-content-center" style="font-size: x-large;"><b> Registration </b></h3>
+            <div align="center">
+                <img id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" 
+                style="max-width: 100px; max-height:100px;" />
+            </div><br>
+        <div class="form-group">
+            <input type="email" name="email"[(ngModel)]="usr.email" class="form-control" required #email="ngModel" email="true" placeholder="Email">
+            <span *ngIf="email.touched && email.invalid" class="d-flex justify-content-end" style="color: red;">Use valid email</span> <br>
+        </div>
+        <div class="form-group">
+            <input type="text" name="username" [(ngModel)]="usr.username" class="form-control" required minlength="3" placeholder="Username" #username="ngModel">
+            <span *ngIf="username.touched && username.invalid" class="d-flex justify-content-end" style="color: red;">Need atleast 3 characters</span> <br>
+        </div>
+        <div class="form-group">
+            <input type="password" name="password" [(ngModel)]="usr.password" class="form-control" minlength="6" required placeholder="Password" #password="ngModel">
+            <span *ngIf="password.touched && password.invalid" class="d-flex justify-content-end" style="color: red;">Need atleast 6 characters</span> <br>
+        </div>
+        <div class="form-group" style="padding-bottom: 20px;">
+            <input type="submit" value="Rgister" class="btn btn-primary float-end" [disabled]="form.invalid">
+        </div>
+    </form>
+</div>
+</div>

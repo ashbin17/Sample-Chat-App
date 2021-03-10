@@ -1,0 +1,82 @@
+
+<div class="container">
+
+    <div class="d-flex justify-content-center mt-5 mb-2" style="margin:auto;" *ngIf="isdetails" >
+    <form action="" class="ex-form" (submit)="adduserdetails()" style="border: 1px solid; margin:auto; padding:20px;" #form1="ngForm">
+        <h2 class="d-flex justify-content-center">User Details</h2>
+        <div class="form-group">
+            <mat-form-field class="exm">
+                <mat-label>Nickname</mat-label>
+                <input matInput name="nickname" [(ngModel)]="form.nickname" #nickname="ngModel" required minlength="3">
+                <span *ngIf="nickname.touched && nickname.invalid" class="d-flex justify-content-end" style="color: red;">Need atleast 3 characters</span>
+            </mat-form-field>
+        </div>
+        <div class="form-group">
+            <mat-form-field class="exm">
+                <mat-label>Phone</mat-label>
+                <input matInput maxlength="10" minlength="10" [(ngModel)]="form.phone" name="phone" required #phone="ngModel">
+                <span *ngIf="phone.touched && phone.invalid" class="d-flex justify-content-end" style="color: red;">Use valid Phone Number</span>
+            </mat-form-field>
+        </div>
+        <div class="form-group">
+            <mat-form-field class="exm">
+                <mat-label>DOB</mat-label>
+                <input matInput type="date" [(ngModel)]="form.dob" name="dob" #dob="ngModel" required>
+            </mat-form-field>
+        </div>
+        <div class="form-group">
+            <mat-form-field class="exm">
+                <mat-label>Language</mat-label>
+                <input matInput [(ngModel)]="form.language" name="language" #language="ngModel" required>
+                <span *ngIf="language.touched && language.invalid" class="d-flex justify-content-end" style="color: red;">Enter a Language</span>
+            </mat-form-field>
+        </div>
+        <div class="form-group">
+            <input type="file" class="form-control" (change)="uploadPhoto($event)" required #pic="ngModel" [(ngModel)]="form.pic" name="pic">
+            <span *ngIf=" pic.touched && pic.invalid" class="d-flex justify-content-end" style="color: red;">Select an Image</span>
+        </div>
+        <br>
+        <input type="submit" name="" id="" value="Add Details" class="float-end btn btn-primary" [disabled]="form1.invalid">
+    </form>
+</div>
+
+<div class="d-flex justify-content-center mt-5 mb-2" style="margin:auto;" *ngIf ="!isdetails" >
+    <form action="" class="ex-form" (submit)="edituserdetails()" style="border: 1px solid; margin:auto; padding:20px;" #form2="ngForm">
+        <h2 class="d-flex justify-content-center">User Details</h2>
+        <div class="form-group">
+            <div align="center">
+                <img [src]=photofilepath height="150px;" width="150px;" style="border-radius: 50%; padding:10px;" class="float-center">
+            </div>  
+            <input type="file" class="form-control" (change)="uploadPhoto($event)">
+        </div><br>
+        <div class="form-group">
+            <mat-form-field class="exm">
+                <mat-label>Nickname</mat-label>
+                <input matInput value="{{form.nickname}}" name="nickname" [(ngModel)]="form.nickname" #nickname="ngModel" required minlength="3">
+                <span *ngIf="nickname.touched && nickname.invalid" class="d-flex justify-content-end" style="color: red;">Need atleast 3 characters</span>
+            </mat-form-field>
+        </div>
+        <div class="form-group">
+            <mat-form-field class="exm">
+                <mat-label>Phone</mat-label>
+                <input matInput maxlength="10" minlength="10" value="{{form.phone}}" [(ngModel)]="form.phone" name="phone" #phone="ngModel" required>
+                <span *ngIf="phone.touched && phone.invalid" class="d-flex justify-content-end" style="color: red;">Use valid Phone Number</span>
+            </mat-form-field>
+        </div>
+        <div class="form-group">
+            <mat-form-field class="exm">
+                <mat-label>DOB</mat-label>
+                <input matInput type="date" value="{{form.dob}}" [(ngModel)]="form.dob" name="dob" #dob="ngModel" required>
+            </mat-form-field>
+        </div> 
+        <div class="form-group">
+            <mat-form-field class="exm">
+                <mat-label>Language</mat-label>
+                <input matInput value="{{form.language}}" [(ngModel)]="form.language" name="language" #language="ngModel" required>
+                <span *ngIf="language.touched && language.invalid" class="d-flex justify-content-end" style="color: red;">Enter a Language</span>
+            </mat-form-field>
+        </div><br>
+        <input type="submit" name="" id="" value="Edit Details" class="float-end btn btn-danger" [disabled]="form2.invalid">
+    </form>
+</div>
+</div>

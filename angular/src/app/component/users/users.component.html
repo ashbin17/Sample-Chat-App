@@ -1,0 +1,28 @@
+<div><br>
+    <input type="text" [(ngModel)]="searchtext" class="search" (keyup)="search1()" placeholder="Search.."><br>
+    <hr style="border: .01em solid gray;">
+
+    <div *ngIf="!searchwork" class="d-flex justify-content-center" style="color: wheat;">
+        No search result
+    </div>
+    <div *ngIf="searchwork" >
+        <div *ngFor="let user of users">
+            <div *ngFor = "let detail of details">
+
+                <a href="home/{{user.id}}">
+                    <div *ngIf = "detail.user == user.id" class="row" >
+                        <div class="col-3" style="margin-bottom: 15px;">
+                            <img [src]=detail.pic alt="" height="55px;" width="55px;" style="border-radius: 50%; ">
+                            <hr style="border: .01em solid gray;">
+                        </div>
+                        <div class="col-9" >
+                            <p style="color: wheat; font-size:small;"><b>{{user.username}}</b></p>
+                            <p style="color: wheat; font-size:xx-small;">Sample text for the sample message. is it ok</p>
+                        </div>  
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </div>
+</div>

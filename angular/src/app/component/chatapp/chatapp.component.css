@@ -1,0 +1,112 @@
+.sticky {
+    position: fixed;
+    width: 50%;
+    bottom: 20px;
+    border: 3px solid #8AC007;
+  }
+
+footer.sticky-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: #ffffff;
+    border-top: solid 1px #efefef;
+  }
+
+.di{
+  bottom: 5px;
+  position: absolute;
+  width: 100%;
+} 
+.search {
+    background: whitesmoke;
+    border-radius: .9em;
+    border: none;
+    padding: 0.8em;
+
+    
+    color: #1A1A1A;
+    font-size: 1.1em;
+    width: 75%;
+    
+    outline: none;
+    box-shadow: 0 4px 6px -5px hsl(0, 0%, 40%), inset 0px 4px 6px -5px hsl(0, 0%, 2%)
+}
+
+@media only screen and (max-width: 600px) {
+  .search{
+    width: 65%;
+  }
+}
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #E0E0E7; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #E0E0E7; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #E0E0E7; 
+}
+::-webkit-scrollbar-corner{
+  background: #E0E0E7; 
+}
+
+
+.msgbox {
+  border: 2px solid #dedede;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.darker {
+  border-color: #ccc;
+  background-color: blue;
+  color:white;
+}
+
+.msgbox::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.msgbox img {
+  float: left;
+  max-width: 60px;
+  max-height: 50px;
+  max-width: 50px;
+  margin-right: 20px;
+  border-radius: .15em;
+}
+
+.msgbox img.right {
+  float: right;
+  margin-left: 50px;
+  margin-right:0;
+}
+
+.time-right {
+  float: right;
+  color: #aaa;
+}
+
+.time-left {
+  float: left;
+  color: #999;
+}

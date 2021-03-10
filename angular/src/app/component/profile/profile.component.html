@@ -1,0 +1,35 @@
+
+<div class="" *ngIf="currentUser; else loggedOut" style="max-width:400px; ">
+  <div align="center" style="padding: 10px;">
+    <img [src]=filepath height="150px;" width="150px;" style="border-radius: 50%; padding:10px;" class="float-center">
+    <p style="font-size: x-large;"><b>{{logindetail.username}}</b></p>
+  </div>
+
+  <hr style="border:1px solid">
+
+  <div class="form-group d-flex justify-content-center" style="padding: 10px;">
+    <p><b>Nickname: {{currentUser.nickname}}</b></p>
+  </div>
+
+  <mat-divider></mat-divider>
+  
+  <div class="form-group d-flex justify-content-center" style="padding: 10px;">
+    <p><b>DOB: {{currentUser.dob}}</b></p>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div class="form-group d-flex justify-content-center" style="padding: 10px;">
+    <p><b>Phone: {{currentUser.phone}}</b></p>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div class="form-group d-flex justify-content-center" style="padding: 10px;">
+    <p><b>Language: {{currentUser.language}}</b></p>
+  </div>
+
+</div>
+<ng-template #loggedOut>
+    Please login.
+</ng-template>
